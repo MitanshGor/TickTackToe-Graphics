@@ -11,14 +11,13 @@
 <style>
 
 
-
     body{
         margin: 10px;
         height: 100%;
         padding: 5px;
         font-family: cursive;
         background-color: lightgreen;
-	    overflow:hidden;
+        overflow: hidden;
     }
     .Score{
         padding-bottom: px;
@@ -206,6 +205,205 @@
     transform-origin: top;
     transform: rotate(+45deg);
     margin-left: 487px;;
+}
+@media only screen and (max-width: 370px) 
+{  
+    body{
+        margin: 10px;
+        height: 100%;
+        width: 130%;
+        padding: 5px;
+        font-family: cursive;
+        background-color: lightgreen;
+        overflow: hidden;
+    }
+    .Score{
+        font-size: 30px;
+        text-align: center;
+        font-weight: 900;
+    }
+    .Header{
+        text-align: center;
+        font-size: 25px;
+        border-bottom: 5px solid red;
+        font-weight: 900;
+    }
+    #XScore , #OScore{
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 4px;
+        border-radius: 30%;
+        
+    }
+    .Header::after{
+            content: "";
+            display: block;
+            border: 0px solid red;
+    }
+    .box_container
+    {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        /* display: inline-flex; */
+        border: 1px solid black;
+        margin-left: -20px;
+        display: grid;
+        grid-template-columns:  167px 167px 166px;
+        grid-template-rows:  167px 167px 166px;
+
+    }
+    .box{
+        background-color: lightyellow;
+        border: 2px solid black;
+        text-align: center;
+        font-size: 60px;
+        padding-top: 30px;
+    }
+    .box:hover{
+        background-color: lime;
+    }
+
+
+    /* Popup box BEGIN */
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    /* z-index:10000; */
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+.lines
+{   
+    position: absolute;
+    border: 2px solid darkred;
+    background-color: darkred;
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-bottom: 1px;
+    width: 5px;
+}
+
+
+.hori{
+    height: 240%;
+   
+}
+.line4{
+    /* display: none; */
+    /* display:none; */
+    margin-left: 82px;
+}
+
+.line5{
+    /* display: none; */
+    margin-left: 249px;
+}
+
+.line6{
+    /* display: none; */
+   
+    margin-left: 416px;
+}
+
+
+.verti{
+    height: 240%;
+    width: 5px;
+    transform-origin: top;
+    transform: rotate(-90deg);
+    margin-left: 2px;;
+}
+.line1{
+    /* display: none; */
+    /* visibility: hidden ; */
+    /* z-index: +10; */
+    margin-top: 77px;
+   
+}
+
+.line2{
+    /* display: none; */
+    margin-top: 245px;;
+}
+
+.line3{
+    /* display: none; */
+    margin-top: 412px;;
+    
+}
+
+.line7
+{
+    height: 340%;
+    /* display: none; */
+    width: 5px;
+    margin-top: 5px;
+    transform-origin: top;
+    transform: rotate(-45deg);
+    margin-left: 5px;;
+}
+.line8{
+    height: 340%;
+    /* display: none; */
+    width: 5px;
+    margin-top: 7px;
+    transform-origin: top;
+    transform: rotate(+45deg);
+    margin-left: 487px;;
+}
 }
 
 
@@ -613,8 +811,6 @@ function main(x)
     {
         x = document.getElementById("OScore")
         x.value=parseInt(x.value)+1
-        
-        // console.log(x.value)
 
         setTimeout(()=>{
             alert("O Player Won")
@@ -678,16 +874,12 @@ function main(x)
         
       
     }
-    ////////////////////////////////////////////// ALL BLOCK COMPLETED BUT NO RESULT FOUND THAN RUNT HIS IF CONDITION
-    if(count%9==0)
+    if(count%9==0 && flagO==false && flagX==false)
     {
-        // alert("Match Tie !! Play Again")
-        
-        // document.getElementsByName("hover_bkgr_fricc").style.display=''
-        // document.getElementsByName("popupCloseButton").click()=function(){
-        //     document.getElementsByName("hover_bkgr_fricc").style.display='none'
-        // }
-        box1.textContent=""
+        setTimeout(()=>{
+
+            alert("MATCH TIE  !!!")
+            box1.textContent=""
         box2.textContent=""
         box3.textContent=""
         box4.textContent=""
@@ -706,20 +898,12 @@ function main(x)
         box8.style.backgroundColor="lightyellow"
         box9.style.backgroundColor="lightyellow"
 
-        // $(window).load(function () {
-        //     $(".trigger_popup_fricc").click(function(){
-        //        $('.hover_bkgr_fricc').show();
-        //     });
-        //     $('.hover_bkgr_fricc').click(function(){
-        //         $('.hover_bkgr_fricc').hide();
-        //     });
-        //     $('.popupCloseButton').click(function(){
-        //         $('.hover_bkgr_fricc').hide();
-        //     });
-        // });
+
+        },2000)
+    
+   
     }
-    // console.log(b1+ " "+ b2 + " " + b3+ " " + b4+ " " + b5+ " " + b6+ " " + b7+ " " + b8+ " " + b9 + " ---> "+ count)    
-//    ////////////////////////////////////
+  
 
 }
 
